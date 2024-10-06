@@ -1,11 +1,11 @@
 export const PortfolioDetalhes = {
     template: `
-        <div v-if="portfolio">
+        <section v-if="portfolio">
             <h1>{{ portfolio.titulo }}</h1>
             <img :src="portfolio.imagem" alt="Imagem do portfólio">
             <p>{{ portfolio.descricao_breve }}</p>
             <div>{{ portfolio.conteudo }}</div>
-        </div>
+        </section>
     `,
     data() {
         return {

@@ -1,13 +1,18 @@
+import { Carousel } from '../componentes/carousel.js';
 export const Evento = {
+    components: {
+        Carousel
+    },
     template: `
-        <div>
+        <section>
             <h1>Eventos</h1>
+            <Carousel />
             <ul>
                 <li v-for="evento in eventos" :key="evento.id">
                     <router-link :to="'/evento/' + evento.id">{{ evento.titulo }}</router-link>
                 </li>
             </ul>
-        </div>
+        </section>
     `,
     data() {
         return {
@@ -20,4 +25,5 @@ export const Evento = {
             .then(response => response.json())
             .then(data => this.eventos = data);
     }
+    
 };

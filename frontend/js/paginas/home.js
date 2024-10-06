@@ -1,14 +1,16 @@
+import { Card } from '../componentes/card.js';
 export const Home = {
+    components: {
+        Card 
+    },
     template: `
         <div>
             <h1>Home</h1>
             <section>
                 <h2>Postagens</h2>
-                <div v-for="postagem in postagens" :key="postagem.id" class="card">
+                <div v-for="postagem in postagens" :key="postagem.id">
                     <router-link :to="'/postagem/' + gerarSlug(postagem.titulo)">
-                        <h3>{{ postagem.titulo }}</h3>
-                        <img :src="postagem.imagem" alt="Imagem da postagem">
-                        <p>{{ postagem.descricao_breve }}</p>
+                       <Card :dados="postagem" tipo="postagem" />
                     </router-link>
                 </div>
             </section>

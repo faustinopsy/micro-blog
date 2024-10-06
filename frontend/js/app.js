@@ -4,7 +4,7 @@ import { Evento } from './paginas/evento.js';
 import { Postagem } from './subPagina/postagem.js';
 import { PortfolioDetalhes } from './subPagina/portfolioDetalhes.js';
 import { EventoDetalhes } from './subPagina/eventoDetalhes.js';
-
+import { Footer } from './componentes/footer.js';
 const routes = [
     { path: '/', component: Home },
     { path: '/postagem/:slug', component: Postagem }, 
@@ -20,6 +20,24 @@ const router = VueRouter.createRouter({
 });
 
 const App = {
+    data() {
+        return {
+            startTime: null,
+            endTime: null,
+            renderTime: null
+        };
+    },
+    beforeMount() {
+        this.startTime = performance.now();  
+    },
+    mounted() {
+        this.endTime = performance.now();    
+        this.renderTime = this.endTime - this.startTime; 
+        console.log(`Tempo de renderização: ${this.renderTime}ms`);
+    },
+    components: {
+        Footer  
+    },
     template: `
         <div>
             <h1>Meu Microblog</h1>
@@ -29,6 +47,7 @@ const App = {
                 <router-link to="/eventos">Eventos</router-link>
             </nav>
             <router-view></router-view>
+            <Footer />
         </div>
     `,
     setup() {

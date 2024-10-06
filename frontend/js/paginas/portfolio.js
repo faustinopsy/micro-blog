@@ -1,12 +1,14 @@
+import { Card } from '../componentes/card.js';
 export const Portfolio = {
+    components: {
+        Card 
+    },
     template: `
         <div>
             <h1>Portfólio</h1>
-            <div v-for="portfolio in portfolios" :key="portfolio.id" class="card">
+            <div v-for="portfolio in portfolios" :key="portfolio.id">
                 <router-link :to="'/portfolio/' + gerarSlug(portfolio.titulo)">
-                    <h3>{{ portfolio.titulo }}</h3>
-                    <img :src="portfolio.imagem" alt="Imagem do portfólio">
-                    <p>{{ portfolio.descricao_breve }}</p>
+                    <Card :dados="portfolio" tipo="portfolio" />
                 </router-link>
             </div>
         </div>

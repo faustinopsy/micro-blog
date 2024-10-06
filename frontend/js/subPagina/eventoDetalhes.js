@@ -1,10 +1,10 @@
 export const EventoDetalhes = {
     template: `
-        <div v-if="evento">
+        <section v-if="evento">
             <h1>{{ evento.titulo }}</h1>
             <p>{{ evento.descricao_breve }}</p>
             <div>{{ evento.conteudo }}</div>
-        </div>
+        </section>
     `,
     data() {
         return {
