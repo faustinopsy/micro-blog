@@ -1,7 +1,10 @@
 import { Card } from '../componentes/card.js';
+import { ListaFeriados } from '../componentes/listaFeriados.js'; 
+
 export const Home = {
     components: {
-        Card 
+        Card,
+        ListaFeriados
     },
     template: `
         <div>
@@ -14,18 +17,12 @@ export const Home = {
                     </router-link>
                 </div>
             </section>
-            <section>
-                <h2>Feriados</h2>
-                <ul>
-                    <li v-for="feriado in feriados" :key="feriado.data">{{ feriado.data }} - {{ feriado.feriado }}</li>
-                </ul>
-            </section>
+            <ListaFeriados />
         </div>
     `,
     data() {
         return {
-            postagens: [],
-            feriados: []
+            postagens: []
         };
     },
     inject: ['urlBase'],
@@ -38,9 +35,5 @@ export const Home = {
         fetch(`${this.urlBase}postagens`)
             .then(response => response.json())
             .then(data => this.postagens = data);
-
-        fetch(`${this.urlBase}feriados`)
-            .then(response => response.json())
-            .then(data => this.feriados = data);
     }
 };
