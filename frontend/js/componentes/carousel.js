@@ -16,17 +16,29 @@ export const Carousel = {
     data() {
         return {
             imagens: [],
-            slideAtual: 0  
+            slideAtual: 1,
+            totalImagens: 0
         };
     },
+    beforeMount(){
+        this.contaArquivos();
+    },
     created() {
-        this.carregarImagens();
         this.iniciarTimer();
     },
+    inject: ['urlBase'],
     methods: {
+        contaArquivos() {
+            fetch(`../../img/conta.php`)
+            .then(response => response.json())
+            .then(data => {
+                this.totalImagens = data.total; 
+                this.carregarImagens(); 
+            })
+            .catch(error => console.error('Erro ao contar imagens:', error));
+        },
         carregarImagens() {
-            const totalImagens = 5;
-            for (let i = 1; i <= totalImagens; i++) {
+            for (let i = 1; i <= this.totalImagens; i++) {
                 const imgPath = `./img/slide/slide${i}.webp`;
                 this.verificarImagemExiste(imgPath, (existe) => {
                     if (existe) {

@@ -13,6 +13,7 @@ class Rotas {
                 '/feriados' => [FeriadosController::class, 'getAllFeriados'],
                 '/eventos' => [EventosController::class, 'getAllEventos'],
                 '/portfolios' => [PortfoliosController::class, 'getAllPortfolios'],
+                '/contaarquivos' => [SlidesController::class, 'contaAquivos'],
             ],
             'POST' => [
                 
