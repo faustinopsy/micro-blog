@@ -38,7 +38,9 @@ nav a {
 nav a:hover {
     color: #f1c40f;
 }
-
+.router-link-active{
+    color: #000000;
+}
 
 section {
     display: flex;
