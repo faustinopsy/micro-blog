@@ -23,6 +23,8 @@ export const PortfolioDetalhes = {
     inject: ['urlBase'],
     methods: {
         gerarSlug(titulo) {
+            //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+            //https://en.wikipedia.org/wiki/Combining_Diacritical_Marks
             return titulo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
         }
     }
