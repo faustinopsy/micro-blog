@@ -100,3 +100,7 @@ const app = Vue.createApp({
 // 12. MONTANDO A APLICAÇÃO
 // Aqui você monta a aplicação Vue em um elemento DOM especificado (neste caso, um elemento com id 'app').
 app.mount('#app');
+
+```
+
+```

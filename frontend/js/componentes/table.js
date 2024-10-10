@@ -1,23 +1,23 @@
 export const Tabela = {
-    data(){
-        return{
-            titulos: ["Company", "Contact", "Country" ],
-            dados: [
-                {pessoa:"Maria Anders", contato:"Alfreds Futterkiste", pais: "Germany"},
-                {pessoa:"rancisco Chang", contato:"Centro comercial Moctezuma", pais: "Mexico" }
-            ]
-        }
+    props: {
+        titulos: Array, 
+        dados: Array
     },
     template: `
         <table>
-        <caption>Teste</caption>
-        <tbody>
-            <tr>
-                <th v-for="titulo in titulos">{{titulo}}</th>
-            </tr>
-            <tr v-for="pess in dados"><td>{{pess.pessoa}}</td><td>{{pess.contato}}</td><td>{{pess.pais}}</td></tr>
-           
-        </tbody>
+            <caption>Tabela Teste</caption>
+            <thead>
+                <tr>
+                    <th v-for="titulo in titulos" :key="titulo">{{ titulo }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="pess in dados" :key="pess.pessoa">
+                    <td>{{ pess.pessoa }}</td>
+                    <td>{{ pess.contato }}</td>
+                    <td>{{ pess.pais }}</td>
+                </tr>
+            </tbody>
         </table>
     `
 };
