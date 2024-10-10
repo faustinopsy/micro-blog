@@ -1,7 +1,9 @@
 import { Carousel } from '../componentes/carousel.js';
+import { Tabela } from '../componentes/table.js';
 export const Evento = {
     components: {
-        Carousel
+        Carousel,
+        Tabela
     },
     template: `
         <section>
@@ -12,6 +14,7 @@ export const Evento = {
                     <router-link :to="'/evento/' + evento.id">{{ evento.titulo }}</router-link>
                 </li>
             </ul>
+            <Tabela />
         </section>
     `,
     data() {
