@@ -16,7 +16,10 @@ const routes = [
 
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+            return { top: 0 };
+    }
 });
 
 const App = {

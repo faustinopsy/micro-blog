@@ -10,14 +10,13 @@ export const Home = {
     template: `
         <div>
             <h1>Home</h1>
-            <section>
-                <h2>Postagens</h2>
-                <div v-for="postagem in postagens" :key="postagem.id">
+            <div class="card-container">
+                <div v-for="postagem in postagens" :key="postagem.id" class="card-wrapper">
                     <router-link :to="'/postagem/' + gerarSlug(postagem.titulo)">
-                       <Card :dados="postagem" tipo="postagem" />
+                        <Card :dados="postagem" tipo="postagem" />
                     </router-link>
                 </div>
-            </section>
+            </div>
             <ListaFeriados />
             <div v-for="(tabela, index) in tabelas" :key="index">
                 <Tabela :titulos="tabela.titulos" :dados="tabela.dados" />
@@ -44,7 +43,6 @@ export const Home = {
         .then(([postagensData, tabelasData]) => {
             this.postagens = postagensData;
             this.tabelas = tabelasData;
-            console.log(this.tabelas)
         })
         .catch(error => {
             console.error("Erro ao buscar os dados:", error);

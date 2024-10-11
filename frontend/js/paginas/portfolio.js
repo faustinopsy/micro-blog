@@ -6,10 +6,12 @@ export const Portfolio = {
     template: `
         <div>
             <h1>Portfólio</h1>
-            <div v-for="portfolio in portfolios" :key="portfolio.id">
-                <router-link :to="'/portfolio/' + gerarSlug(portfolio.titulo)">
-                    <Card :dados="portfolio" tipo="portfolio" />
-                </router-link>
+            <div class="card-container">
+                <div v-for="portfolio in portfolios" :key="portfolio.id" class="card-wrapper">
+                    <router-link :to="'/portfolio/' + gerarSlug(portfolio.titulo)">
+                        <Card :dados="portfolio" tipo="portfolio" />
+                    </router-link>
+                </div>
             </div>
         </div>
     `,
